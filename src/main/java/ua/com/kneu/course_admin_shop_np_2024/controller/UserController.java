@@ -2,6 +2,7 @@ package ua.com.kneu.course_admin_shop_np_2024.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -61,6 +62,8 @@ public class UserController {
 
 
         users.setRolesset(Collections.singleton(new Roles(1L, "ROLE_User", "User")));
+        users.setPassword(new BCryptPasswordEncoder().encode(users.getPassword()));
+
         Users user1 =  usersRepository.save(users);
 
 
@@ -73,6 +76,5 @@ public class UserController {
 
         return "redirect:/login";
     }
-
 
 }

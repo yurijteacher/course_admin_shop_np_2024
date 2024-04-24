@@ -13,5 +13,21 @@ public class TestController {
         return "index";
     }
 
+    @GetMapping("/user")
+    public String getUserPage(){
+        return "user";
+    }
+
+
+    @GetMapping("/manager")
+    public String getManagerPage(){
+        return "manager";
+    }
+
+
+    @GetMapping("/admin")
+    public String getAdminPage(){
+        return "admin";
+    }
 
 }

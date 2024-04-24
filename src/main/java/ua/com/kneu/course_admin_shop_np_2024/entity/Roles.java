@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,7 +26,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "roles")
-public class Roles {
+public class Roles implements GrantedAuthority {
 
     @Id // PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // NN AI
@@ -41,5 +42,10 @@ public class Roles {
         this.id = id;
         this.name = name;
         this.description = description;
+    }
+
+    @Override
+    public String getAuthority() {
+        return getName();
     }
 }
