@@ -50,7 +50,9 @@ public class WebSecurityConfig {
                                 .permitAll()
                                 .requestMatchers("/user")
                                 .hasRole("User")
-                                .requestMatchers("/manager","/manager2")
+                                .requestMatchers("/manager",
+                                        "/saveNewCategory","/category-admin","/deleteCategory","/deleteAllCategory"
+                                        ,"/product-manager", "/saveNewProduct", "/updateProduct", "/deleteProduct")
                                 .hasRole("Manager")
                                 .requestMatchers("/admin")
                                 .hasRole("Admin")

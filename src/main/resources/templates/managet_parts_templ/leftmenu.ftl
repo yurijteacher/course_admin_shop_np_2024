@@ -1,6 +1,6 @@
 <div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action"> Додавання і оновлення інформації по категоріям </a>
-    <a href="#" class="list-group-item list-group-item-action"> Додавання і оновлення інформації по продукції </a>
+    <a href="/category-admin" class="list-group-item list-group-item-action"> Додавання і оновлення інформації по категоріям </a>
+    <a href="/product-manager" class="list-group-item list-group-item-action"> Додавання і оновлення інформації по продукції </a>
     <a href="#" class="list-group-item list-group-item-action"> Оновлення інформації за робочими сторінками сайту </a>
     <a href="#" class="list-group-item list-group-item-action"> Управління замовленнями </a>
     <a href="#" class="list-group-item list-group-item-action"> Адміністування форуму </a>

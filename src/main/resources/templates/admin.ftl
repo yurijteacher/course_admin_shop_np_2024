@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin page</title>
-</head>
-<body>
-<h1>Admin page</h1>
+<#import "admin_parts_templ/templ_admin.ftl" as p>
+<@p.pages>
 
-</body>
-</html>
+    <h2> Головна сторінка адміністратора </h2>
+
+
+</@p.pages>

@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>User page</title>
-</head>
-<body>
-<h1>User</h1>
+<#import "user_parts_templ/templ_user.ftl" as p>
+<@p.pages>
 
-</body>
-</html>
+    <h2> Головна сторінка користувача </h2>
+
+
+</@p.pages>

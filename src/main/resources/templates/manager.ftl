@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Manager page</title>
-</head>
-<body>
-<h1> Manager page</h1>
-</body>
-</html>
+<#import "managet_parts_templ/templ_manager.ftl" as m>
+<@m.pages>
+
+    <h2> Головна сторінка менеджера </h2>
+
+
+
+</@m.pages>
