@@ -4,6 +4,15 @@
     <h2>Сторінка адміністрування категорій</h2>
 
     <hr>
+    <h4> Запис з файла Excel</h4>
+
+    <form action="saveFromExcel" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">add</button>
+    </form>
+
+
+    <hr>
     <h4>Форма для додавання нових категорій</h4>
 
     <form action="/saveNewCategory" method="post">

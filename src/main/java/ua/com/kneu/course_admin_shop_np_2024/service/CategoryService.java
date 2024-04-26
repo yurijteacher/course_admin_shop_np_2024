@@ -39,4 +39,16 @@ public class CategoryService
     public void deleteAllCategory(){
         categoryRepository.deleteAll();
     }
+
+    public void saveCategories(List<Category> categories){
+        for(Category el : categories){
+            saveCategory(el);
+        }
+
+        // categoryRepository.saveAll(categories);
+
+
+    }
+
+
 }

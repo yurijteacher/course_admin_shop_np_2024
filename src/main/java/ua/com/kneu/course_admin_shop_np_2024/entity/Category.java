@@ -27,4 +27,9 @@ public class Category {
     @OneToMany(mappedBy = "categorie")
     private List<Product> productList;
 
+    public Category(String name, String description, String image) {
+        this.name = name;
+        this.description = description;
+        this.image = image;
+    }
 }

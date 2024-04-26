@@ -6,9 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import ua.com.kneu.course_admin_shop_np_2024.entity.Category;
 import ua.com.kneu.course_admin_shop_np_2024.service.CategoryService;
+import ua.com.kneu.course_admin_shop_np_2024.service.SaveCategoryToDBFromExcel;
+import ua.com.kneu.course_admin_shop_np_2024.validation.Valid;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -16,6 +20,7 @@ import java.util.List;
 public class CategoryController {
 
     private final CategoryService categoryService;
+    private final SaveCategoryToDBFromExcel saveCategoryToDBFromExcel;
 
     @GetMapping("/category-admin")
     public String getCategoryPage(Model model){
@@ -73,6 +78,28 @@ public class CategoryController {
 
         categoryService.deleteAllCategory();
 
+        return "redirect:/category-admin";
+    }
+
+    @PostMapping("saveFromExcel")
+    public String saveCategoryToDbFromExcel(@RequestParam("file") MultipartFile file){
+
+        List<Category> categories = new ArrayList<>();
+
+        String path = "/Users/urijlozovik/Desktop/" + file.getOriginalFilename();
+
+        if(file !=null && !file.getOriginalFilename().isEmpty()) {
+
+            Valid valid = new Valid();
+
+            if (valid.logicXLS(file.getOriginalFilename())) {
+                categories = saveCategoryToDBFromExcel.saveListCategoryToDbFromExcel(path);
+                categoryService.saveCategories(categories);
+            } else if (valid.logicXLSX(file.getOriginalFilename())) {
+                categories = saveCategoryToDBFromExcel.saveListCategoryToDbFromExcel2(path);
+                categoryService.saveCategories(categories);
+            }
+        }
         return "redirect:/category-admin";
     }
 
