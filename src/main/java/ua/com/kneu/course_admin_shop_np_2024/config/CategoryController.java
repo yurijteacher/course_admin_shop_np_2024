@@ -12,6 +12,8 @@ import ua.com.kneu.course_admin_shop_np_2024.service.CategoryService;
 import ua.com.kneu.course_admin_shop_np_2024.service.SaveCategoryToDBFromExcel;
 import ua.com.kneu.course_admin_shop_np_2024.validation.Valid;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,7 +93,6 @@ public class CategoryController {
         if(file !=null && !file.getOriginalFilename().isEmpty()) {
 
             Valid valid = new Valid();
-
             if (valid.logicXLS(file.getOriginalFilename())) {
                 categories = saveCategoryToDBFromExcel.saveListCategoryToDbFromExcel(path);
                 categoryService.saveCategories(categories);
