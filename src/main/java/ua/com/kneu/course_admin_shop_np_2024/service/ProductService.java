@@ -1,7 +1,11 @@
 package ua.com.kneu.course_admin_shop_np_2024.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import ua.com.kneu.course_admin_shop_np_2024.entity.Category;
 import ua.com.kneu.course_admin_shop_np_2024.entity.Product;
 import ua.com.kneu.course_admin_shop_np_2024.repository.ProductRepository;
 
@@ -40,6 +44,19 @@ public class ProductService {
 
     public void deleteAllProduct(){
         productRepository.deleteAll();
+    }
+
+    public List<Product> getProductsByCategory(Category category){
+        return productRepository.findAllByCategorie(category);
+    }
+
+    public List<Product> getProductsByName(String name){
+        return  productRepository.findAllByNameContainsIgnoreCaseOrderByName(name);
+    }
+
+    @Cacheable(value = "productByCategoryId", key = "#category.id  + '_' + #pageable.pageNumber")
+    public Page<Product> getPageProducts(Pageable pageable, Category category){
+        return productRepository.findAllByCategorie(pageable, category);
     }
 
 

@@ -46,9 +46,12 @@ public class WebSecurityConfig {
                 .csrf((csrf)->csrf.disable())
                 .authorizeHttpRequests((authorize)->
                         authorize
-                                .requestMatchers("/","/delivery","/payment","/category","/registration", "/registration/**")
+                                .requestMatchers("/","/delivery","/payment","/category","/registration", "/registration/**",
+                                        "/delivery","/payment", "/order", "/thank","/cart","/category/*","/addToCart",
+                                        "/updateItemInCart","/deleteItemFromCart","/deleteAllItem", "/static/**"
+                                        )
                                 .permitAll()
-                                .requestMatchers("/user")
+                                .requestMatchers("/user","/order","/buy")
                                 .hasRole("User")
                                 .requestMatchers("/manager",
                                         "/saveNewCategory","/category-admin","/deleteCategory","/deleteAllCategory"

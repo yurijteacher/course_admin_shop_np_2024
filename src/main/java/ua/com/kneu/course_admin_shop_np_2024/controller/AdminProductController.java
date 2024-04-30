@@ -1,4 +1,4 @@
-package ua.com.kneu.course_admin_shop_np_2024.config;
+package ua.com.kneu.course_admin_shop_np_2024.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 
 @Controller
 @RequiredArgsConstructor
-public class ProductController {
+public class AdminProductController {
 
     private final ProductService productService;
     private final CategoryService categoryService;

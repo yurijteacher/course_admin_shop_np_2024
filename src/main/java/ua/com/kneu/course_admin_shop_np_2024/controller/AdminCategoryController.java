@@ -1,4 +1,4 @@
-package ua.com.kneu.course_admin_shop_np_2024.config;
+package ua.com.kneu.course_admin_shop_np_2024.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -12,14 +12,12 @@ import ua.com.kneu.course_admin_shop_np_2024.service.CategoryService;
 import ua.com.kneu.course_admin_shop_np_2024.service.SaveCategoryToDBFromExcel;
 import ua.com.kneu.course_admin_shop_np_2024.validation.Valid;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-public class CategoryController {
+public class AdminCategoryController {
 
     private final CategoryService categoryService;
     private final SaveCategoryToDBFromExcel saveCategoryToDBFromExcel;

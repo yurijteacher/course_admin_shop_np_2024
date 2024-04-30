@@ -1,6 +1,8 @@
 package ua.com.kneu.course_admin_shop_np_2024.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ua.com.kneu.course_admin_shop_np_2024.entity.Category;
 import ua.com.kneu.course_admin_shop_np_2024.repository.CategoryRepository;
@@ -44,10 +46,11 @@ public class CategoryService
         for(Category el : categories){
             saveCategory(el);
         }
-
         // categoryRepository.saveAll(categories);
+    }
 
-
+    public Page<Category> findPageCategory(Pageable pageable){
+        return categoryRepository.findAll(pageable);
     }
 
 

@@ -31,6 +31,10 @@ public class Order {
     @JoinColumn(name = "payment_id")
     private Payment _payment;
 
+
+    private String delivery;
+    private String payment;
+
     private double valueOrder;
     private boolean status;
 

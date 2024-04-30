@@ -9,8 +9,10 @@ public class TestController {
 
     @GetMapping("/")
     public String getHome(Model model){
-        model.addAttribute("text", "Hello Student");
-        return "index";
+        // model.addAttribute("text", "Hello Student");
+
+        model.addAttribute("hello", "Hello Student!!");
+        return "index3";
     }
 
     @GetMapping("/user")
@@ -29,5 +31,17 @@ public class TestController {
     public String getAdminPage(){
         return "admin";
     }
+
+    @GetMapping("/payment")
+    public String getPagePayment(){
+        return "payment";
+    }
+
+    @GetMapping("/delivery")
+    public String getPageDelivery(){
+        return "delivery";
+    }
+
+
 
 }
