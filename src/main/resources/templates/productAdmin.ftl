@@ -1,10 +1,10 @@
 <#import "managet_parts_templ/templ_manager.ftl" as p>
 <@p.pages>
 
-    <h2>Сторінка адміністрування категорій</h2>
+    <h2>Сторінка адміністрування продукції</h2>
 
     <hr>
-    <h4>Форма для додавання нових категорій</h4>
+    <h4>Форма для додавання нової продукції</h4>
 
     <form action="/saveNewProduct" method="post">
 

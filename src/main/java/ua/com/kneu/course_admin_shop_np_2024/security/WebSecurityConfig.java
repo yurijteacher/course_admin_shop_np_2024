@@ -58,7 +58,7 @@ public class WebSecurityConfig {
                                         ,"/product-manager", "/saveNewProduct", "/updateProduct", "/deleteProduct", "/saveFromExcel"
                                 )
                                 .hasRole("Manager")
-                                .requestMatchers("/admin")
+                                .requestMatchers("/admin", "/admin-users","/update-users","/update-roles-users")
                                 .hasRole("Admin")
                                 .anyRequest()
                                 .authenticated()

@@ -10,6 +10,8 @@ import ua.com.kneu.course_admin_shop_np_2024.entity.Users;
 import ua.com.kneu.course_admin_shop_np_2024.repository.ClientsRepository;
 import ua.com.kneu.course_admin_shop_np_2024.repository.UsersRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class UserService implements UserDetailsService {
@@ -36,4 +38,18 @@ public class UserService implements UserDetailsService {
     public Clients getClientById(Long id){
         return clientsRepository.findById(id).get();
     }
+
+
+    public List<Users> getAllUsers(){
+        return usersRepository.findAll();
+    }
+
+    public void updateUser(String password, String username, Long id){
+        usersRepository.updateUserById(password, username, id);
+    }
+
+    public void addNewRoleToUser(Long userId, Long roleId){
+        usersRepository.updateRoleByUserId(userId, roleId);
+    }
+
 }

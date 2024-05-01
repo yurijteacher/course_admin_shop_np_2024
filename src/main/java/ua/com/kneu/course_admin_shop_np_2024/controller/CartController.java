@@ -213,6 +213,12 @@ public class CartController {
                 productHasOrderRepository.save(new ProductHasOrder(el.getProduct(), el.getQuantity(), order1));
             }
 
+            cart.getCart().clear();
+            cart.setSumElInCart(0);
+            cart.setTotalValue(0);
+
+            session.setAttribute("cart", cart);
+
             return "redirect:/thank";
         } else {
             return "redirect:/category";
