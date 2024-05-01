@@ -14,6 +14,7 @@ import ua.com.kneu.course_admin_shop_np_2024.service.UserService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @Controller
@@ -68,16 +69,18 @@ public class AdminUserController {
             @RequestParam(name = "id") Users user,
             @RequestParam(name = "role") Roles role){
 
-        List<Boolean> logic = new ArrayList<>();
-        logic.add(false);
 
-        user.getRolesset().stream().forEach(e-> {
-                    if (role.getId() == role.getId())
-                        logic.add(true);
-                }
-            );
+        Set<Roles> roles = user.getRolesset();
 
-        if(!logic.get(0)){
+        boolean logic = false;
+
+        for (Roles r : roles) {
+            if(r.getId().equals(role.getId())){
+                logic = true;
+            }
+        }
+
+        if(!logic){
             userService.addNewRoleToUser(user.getId(), role.getId());
         }
         return "redirect:/update-roles-users";
