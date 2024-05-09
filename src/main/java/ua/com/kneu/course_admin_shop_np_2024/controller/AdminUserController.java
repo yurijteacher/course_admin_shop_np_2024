@@ -69,20 +69,15 @@ public class AdminUserController {
             @RequestParam(name = "id") Users user,
             @RequestParam(name = "role") Roles role){
 
-
         Set<Roles> roles = user.getRolesset();
-
         boolean logic = false;
 
         for (Roles r : roles) {
-            if(r.getId().equals(role.getId())){
-                logic = true;
-            }
+            if(r.getId().equals(role.getId())) logic = true;
         }
 
-        if(!logic){
-            userService.addNewRoleToUser(user.getId(), role.getId());
-        }
+        if(!logic) userService.addNewRoleToUser(user.getId(), role.getId());
+
         return "redirect:/update-roles-users";
     }
 
